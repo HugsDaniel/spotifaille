@@ -8,6 +8,9 @@ class PlaylistsController < ApplicationController
 
   # GET /playlists/1 or /playlists/1.json
   def show
+    # 1. Choper toutes les songs de ma playlist
+    @songs = @playlist.songs
+    @playlist_song = PlaylistSong.new
   end
 
   # GET /playlists/new

@@ -4,6 +4,24 @@
   <strong>Name:</strong>
   <%= @playlist.name %>
 </p>
+<h3>Choisissez une chanson</h3>
+<%= simple_form_for [@playlist, @playlist_song] do |f| %>
+  <%= f.association :song, input_html: { class: "select2" } %>
+  <%= f.submit "Ajouter", class: "btn btn-primary" %>
+<% end %>
+
+<p>
+  <strong>Songs:</strong>
+  <ul>
+    <% @songs.each do |song| %>
+      <li>
+        <img src="<%= song.album.cover %>" alt="" width="100"> <%= song.title %> (<%= song.duration %> min) - <%= song.album.artist %>
+      </li>
+    <% end %>
+  </ul>
+</p>
+
+
 
 <%= link_to 'Edit', edit_playlist_path(@playlist) %> |
 <%= link_to 'Back', playlists_path %>
