@@ -1,0 +1,17 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Albums</h1>
+
+<div class="cards">
+  <% @albums.each do |album| %>
+    <%= link_to album_path(album), class: "card-link" do %>
+      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= album.cover %>)">
+        <%= album.name %>
+      </div>
+    <% end %>
+  <% end %>
+</div>
+
+<br>
+
+<%= link_to 'New Album', new_album_path %>
